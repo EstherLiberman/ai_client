@@ -1,5 +1,3 @@
-
-// src/theme.js
 import { createTheme } from '@mui/material/styles';
 
 const customTheme = createTheme({
@@ -11,10 +9,10 @@ const customTheme = createTheme({
       contrastText: '#FFFFFF',
     },
     secondary: {
-      main: '##FFFFFF',
+      main: '#FFFFFF',
       light: '#FFFFFF',
-      dark: '##FFFFFF',
-      contrastText: '#FFFFFF',
+      dark: '#F5F5F5',
+      contrastText: '#000000',
     },
     background: {
       default: '#FFDEDE',
@@ -51,3 +49,4 @@ const customTheme = createTheme({
 });
 
 export default customTheme;
+

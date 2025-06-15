@@ -6,13 +6,11 @@ import {
   CardContent,
   Avatar,
   Grid,
-  Button,
-  Divider,
 } from '@mui/material';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import NavBar from '../components/NavBar';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import PersonalLayout from '../components/Layout';
 
 const Dashboard = () => {
   const user = useSelector((state) => state.user.user);
@@ -25,97 +23,55 @@ const Dashboard = () => {
   }, [user, navigate]);
 
   return (
-    <>
-      <NavBar />
+    <PersonalLayout>
       <Box
         sx={{
-          minHeight: '100vh',
+          minHeight: 'calc(100vh - 64px)',
           display: 'flex',
-          backgroundColor: '#f3f6f9',
+          justifyContent: 'center',
+          alignItems: 'center',
+          background: 'linear-gradient(to right, #e3f2fd, #fce4ec)',
+          p: 2,
         }}
       >
-        {/* Sidebar */}
-        <Box
+        <Card
           sx={{
-            width: 240,
-            backgroundColor: '#ffffff',
-            p: 2,
-            boxShadow: 3,
-            display: 'flex',
-            flexDirection: 'column',
-            gap: 2,
+            maxWidth: 500,
+            width: '100%',
+            borderRadius: 6,
+            boxShadow: 6,
+            backgroundColor: '#fff',
           }}
         >
-          <Typography variant="h6" fontWeight="bold">
-            תפריט אישי
-          </Typography>
-          <Divider />
-          <Button
-            variant="contained"
-            color="primary"
-            fullWidth
-            onClick={() => navigate('/new-chat')}
-          >
-            שיחה חדשה
-          </Button>
-          <Button
-            variant="outlined"
-            color="primary"
-            fullWidth
-            onClick={() => navigate('/chat-history')}
-          >
-            היסטורית שיחות
-          </Button>
-        </Box>
-
-        {/* Main content */}
-        <Box
-          sx={{
-            flexGrow: 1,
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-            p: 4,
-          }}
-        >
-          <Card
-            sx={{
-              maxWidth: 500,
-              width: '100%',
-              borderRadius: 4,
-              boxShadow: 3,
-            }}
-          >
-            <CardContent>
-              <Grid container spacing={2} alignItems="center">
-                <Grid item>
-                  <Avatar sx={{ bgcolor: 'primary.main', width: 64, height: 64 }}>
-                    <AccountCircleIcon sx={{ fontSize: 40 }} />
-                  </Avatar>
-                </Grid>
-                <Grid item xs>
-                  <Typography variant="h5" gutterBottom>
-                    שלום, {user ? user.name : 'אורח'}
-                  </Typography>
-                  <Typography variant="body1" color="text.secondary">
-                    טלפון: {user ? user.phone : ''}
-                  </Typography>
-                </Grid>
+          <CardContent>
+            <Grid container spacing={2} alignItems="center">
+              <Grid item>
+                <Avatar sx={{ bgcolor: 'primary.main', width: 64, height: 64 }}>
+                  <AccountCircleIcon sx={{ fontSize: 40 }} />
+                </Avatar>
               </Grid>
+              <Grid item xs>
+                <Typography variant="h5" gutterBottom>
+                  שלום, {user ? user.name : 'אורח'}
+                </Typography>
+                <Typography variant="body1" color="text.secondary">
+                  טלפון: {user ? user.phone : ''}
+                </Typography>
+              </Grid>
+            </Grid>
 
-              <Box mt={4}>
-                <Typography variant="subtitle1" fontWeight="bold" gutterBottom>
-                  ברוך הבא לאזור האישי שלך!
-                </Typography>
-                <Typography variant="body2" color="text.secondary">
-                  כאן תוכל לגשת לשירותים האישיים שלך, לעקוב אחרי הפעילויות שלך, ולערוך את הפרטים שלך.
-                </Typography>
-              </Box>
-            </CardContent>
-          </Card>
-        </Box>
+            <Box mt={4}>
+              <Typography variant="subtitle1" fontWeight="bold" gutterBottom>
+                ברוך הבא לאזור האישי שלך!!!!
+              </Typography>
+              <Typography variant="body2" color="text.secondary">
+                     כאן תוכל לגשת לשירותים האישיים שלך, לעקוב אחרי הפעילויות שלך, ולערוך את הפרטים שלך.
+              </Typography>
+            </Box>
+          </CardContent>
+        </Card>
       </Box>
-    </>
+    </PersonalLayout>
   );
 };
 

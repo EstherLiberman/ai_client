@@ -8,6 +8,8 @@ import AdminPanel from './pages/AdminPanel'
 import Login from './pages/Login';
 import { setUser } from './redux/userSlice';
 import NewChat from './pages/NewChat'; 
+import ChatHistory from './pages/ChatHistory';
+
 
 
 const App = () => {
@@ -27,8 +29,9 @@ const App = () => {
       <Route path="/dashboard" element={<Dashboard />} />
       <Route path="/admin" element={<AdminPanel />} />
       <Route path="/login" element={<Login />} />
-      <Route path="/new-chat" element={<NewChat />} /> {/* 👈 הנתיב החדש */}
-
+      <Route path="/chat-history" element={<ChatHistory />} />
+      <Route path="/new-chat" element={<NewChat />} />
+      
     </Routes>
   )
 }

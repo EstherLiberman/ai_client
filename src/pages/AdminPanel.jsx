@@ -8,7 +8,7 @@ const AdminPanel = () => {
       <NavBar />
       <Box sx={{ p: 4 }}>
         <Typography variant="h4">פאנל ניהול</Typography>
-        <Typography>רשימת משתמשים והיסטוריית הלימוד שלהם.</Typography>
+        <Typography>רשימת משתמשים והיסטוריית הלימוד שלהם</Typography>
       </Box>
     </>
   )

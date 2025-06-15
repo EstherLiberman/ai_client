@@ -10,6 +10,7 @@ import {
 import { useSelector } from 'react-redux';
 import axios from 'axios';
 import { v4 as uuidv4 } from 'uuid';
+import PersonalLayout from '../components/Layout';
 
 const NewChat = () => {
   const user = useSelector((state) => state.user.user);
@@ -40,61 +41,62 @@ const NewChat = () => {
   };
 
   return (
-    <Paper sx={{ maxWidth: 600, m: 'auto', mt: 5, p: 4 }}>
-      <Typography variant="h5" gutterBottom>
-        שיחה חדשה
-      </Typography>
-
-      <TextField
-          fullWidth
-           label="קטגוריה"
-            value={categoryId}
-            onChange={(e) => setCategoryId(e.target.value)}
-        margin="normal"
-      >
-        {/* החלף בדאטה אמיתי מהשרת בעתיד */}
-        <MenuItem value="cat1">קטגוריה 1</MenuItem>
-        <MenuItem value="cat2">קטגוריה 2</MenuItem>
-      </TextField>
-
-      <TextField
-        fullWidth
-        label="תת קטגוריה"
-        value={subCategoryId}
-        onChange={(e) => setSubCategoryId(e.target.value)}
-        select
-        margin="normal"
-      >
-        <MenuItem value="sub1">תת קטגוריה 1</MenuItem>
-        <MenuItem value="sub2">תת קטגוריה 2</MenuItem>
-      </TextField>
-
-      <TextField
-        fullWidth
-        label="תוכן השיחה"
-        value={promptText}
-        onChange={(e) => setPromptText(e.target.value)}
-        multiline
-        rows={4}
-        margin="normal"
-      />
-
-      <Button
-        variant="contained"
-        color="primary"
-        fullWidth
-        onClick={handleSubmit}
-        disabled={!promptText || !categoryId || !subCategoryId}
-      >
-        שלח שיחה
-      </Button>
-
-      {responseText && (
-        <Typography variant="body2" color="success.main" mt={2}>
-          {responseText}
+    <PersonalLayout>
+      <Paper sx={{ maxWidth: 600, m: 'auto', mt: 5, p: 4 }}>
+        <Typography variant="h5" gutterBottom>
+          שיחה חדשה
         </Typography>
-      )}
-    </Paper>
+
+        <TextField
+          fullWidth
+          label="קטגוריה"
+          value={categoryId}
+          onChange={(e) => setCategoryId(e.target.value)}
+          margin="normal"
+        >
+          <MenuItem value="cat1">קטגוריה 1</MenuItem>
+          <MenuItem value="cat2">קטגוריה 2</MenuItem>
+        </TextField>
+
+        <TextField
+          fullWidth
+          label="תת קטגוריה"
+          value={subCategoryId}
+          onChange={(e) => setSubCategoryId(e.target.value)}
+          select
+          margin="normal"
+        >
+          <MenuItem value="sub1">תת קטגוריה 1</MenuItem>
+          <MenuItem value="sub2">תת קטגוריה 2</MenuItem>
+        </TextField>
+
+        <TextField
+          fullWidth
+          label="תוכן השיחה"
+          value={promptText}
+          onChange={(e) => setPromptText(e.target.value)}
+          multiline
+          rows={4}
+          margin="normal"
+        />
+
+        <Button
+          variant="contained"
+          color="primary"
+          fullWidth
+          onClick={handleSubmit}
+          disabled={!promptText || !categoryId || !subCategoryId}
+        >
+          שלח שיחה
+        </Button>
+
+        {responseText && (
+          <Typography variant="body2" color="success.main" mt={2}>
+            {responseText}
+          </Typography>
+        )}
+      </Paper>
+    </PersonalLayout>
   );
 };
 

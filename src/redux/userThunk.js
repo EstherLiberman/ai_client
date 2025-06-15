@@ -3,10 +3,10 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 
 import axios from 'axios';
 
-// const API_URL = 'https://localhost:7095/api/Users';
+const API_URL = 'https://localhost:7095/api/Users';
 
 // const API_URL = 'http://localhost:5200/api/Users';
-const API_URL = 'http://localhost:5180/api/Users';
+// const API_URL = 'https://localhost:5180/api/Users';
 
 
 
